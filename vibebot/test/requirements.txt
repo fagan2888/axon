@@ -1,0 +1,4 @@
+pika==0.10
+graypy==0.2.14
+statsd==3.2.1
+vibepy==0.0.12
