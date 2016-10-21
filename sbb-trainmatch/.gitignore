@@ -1,0 +1,10 @@
+*.pyc
+src/resources/application.ini
+event/application.ini
+*.pkl
+*.idea
+*.DS_Store
+src/resources/logging_config.json
+event/logging_config.json
+*.log
+*.ini

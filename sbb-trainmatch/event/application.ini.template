@@ -1,0 +1,92 @@
+[database]
+POSTGRES_DATABASE=%%POSTGRES_DATABASE%%
+POSTGRES_USER=%%POSTGRES_USER%%
+POSTGRES_HOST=%%POSTGRES_HOST%%
+POSTGRES_PORT=%%POSTGRES_PORT%%
+POSTGRES_PASSWORD=%%POSTGRES_PASSWORD%%
+POSTGRES_SCHEMA=%%POSTGRES_SCHEMA%%
+POSTGRES_SCHEMA_PROVIDER=%%POSTGRES_SCHEMA_PROVIDER%%
+POSTGRES_SCHEMA_OUTPUT=%%POSTGRES_SCHEMA_OUTPUT%%
+
+[sbb]
+SBB_API_KEY_DIR = %%SBB_API_KEY_DIR%%
+SBB_API_URI = %%SBB_API_URI%%
+
+[params]
+; Walkable distance (meters) from start / end station. If multiple stations are within that distance, choses the one
+; with the best 'connectivity' between start/end, i.e. minimum number of transfers required
+MAX_WALK_DIST=%%MAX_WALK_DIST%%
+
+; The number of seconds before and after a trip to include location points
+START_TRIP_BUFFER=%%START_TRIP_BUFFER%%
+
+; Time in seconds (integer) beyond which a stop is considered 'long stop' (e.g. before/after trip, between legs, etc.)
+TRAIN_LONG_STOP_THRESHOLD = %%TRAIN_LONG_STOP_THRESHOLD%%
+; Weighting of the points part of a long stop. (1.0 = normal points, 2.0 = twice as important, 0.5 = half, etc.)
+TRAIN_LONG_STOP_WEIGHT = %%TRAIN_LONG_STOP_WEIGHT%%
+
+; How many standard deviations a point can be out of order before it is considered to be an out of order outlier.
+ORDER_FILTER_CUTOFF=%%ORDER_FILTER_CUTOFF%%
+
+; The minimum out of order standard deviation that an itinerary can have, otherwise will divide by a very small number
+ORDER_FILTER_MIN_STD=%%ORDER_FILTER_MIN_STD%%
+
+; Time overlap allowed between the start(end) of a following(preceeding) visit and selected train itinerary (integer minutes)
+VISIT_TIME_OVERLAP_BUFFER=%%VISIT_TIME_OVERLAP_BUFFER%%
+
+; parameters used to raise flags in the itinerary analysis [int, int, float]
+N_ROW_MIN=%%N_ROW_MIN%%
+N_DIST_MAX=%%N_DIST_MAX%%
+N_TIME_MIN=%%N_TIME_MIN%%
+
+[pointprocessing]
+MIN_VISIT_DURATION=%%PPBOT_MIN_VISIT_DURATION%%
+
+[mapbox]
+# MapBox API URL, including credentials / access token and parameter conversion parameter for python string processing
+API_URL=%%API_URL%%
+
+[geovalidity]
+; This variable should be a comma separated list of filenames (no extension) which contain shapefiles of the regions
+; of geo-validity for the traindetect bot
+VALID_REGION_WKT=%%VALID_REGION_WKT_SM%%
+; Minimum distance between start/end points of a MoT segment to trigger SM (avoids SPF failing on same start/end)
+MIN_DIST_BTW_PTS=%%SMBOT_MIN_DIST_BTW_PTS%%
+
+; Map rendering in the visualization has two 'zoom-in' -- on the departure and arrival points. Defines how zoomed-in
+START_END_ZOOM_LEVEL=%%START_END_ZOOM_LEVEL%%
+
+[statsd]
+; PARAMETERS need to be defined here ...
+STATSD_HOST=%%STATSD_HOST%%
+STATSD_PORT=%%STATSD_PORT%%
+; namespace should include full path, including schedule-matching specific elements
+STATSD_NAMESPACE=%%STATSD_NAMESPACE%%.schedule-matching
+
+[smtp]
+host=localhost
+port=25
+sender=trainmatch
+recipients=simon.gelinas@axonvibe.com
+
+[bot]
+sched_matching=%%SCHEDULE_MATCHING_BOT_ID%%
+
+[redis]
+redis_host=%%REDIS_HOST%%
+redis_port=%%REDIS_PORT%%
+
+[rabbit]
+; Bot connects to exchange-bot-bot_id so the bot_id must match the queue
+schedule_matching_bot_id=%%SCHEDULE_MATCHING_BOT_ID%%
+rabbit_user=%%RABBIT_USER%%
+rabbit_pw=%%RABBIT_PW%%
+rabbit_host=%%RABBIT_HOST%%
+rabbit_port=%%RABBIT_PORT%%
+rabbit_mot_exchange=%%RABBIT_MOT_EXCHANGE%%
+
+[logging]
+LOG_LEVEL = %%LOG_LEVEL%%
+LOG_FORMAT = %%LOG_FORMAT%%
+GRAYLOG_SERVER = %%GRAYLOG_SERVER%%
+GRAYLOG_PORT = %%GRAYLOG_PORT%%

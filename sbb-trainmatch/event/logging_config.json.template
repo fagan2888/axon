@@ -1,0 +1,41 @@
+{
+    "version": 1,
+    "disable_existing_loggers": false,
+    "formatters": {
+        "simple": {
+            "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+        }
+    },
+
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "level": "DEBUG",
+            "formatter": "simple",
+            "stream": "ext://sys.stdout"
+        },
+
+        "filehandler": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "level": "DEBUG",
+            "formatter": "simple",
+            "filename": "%%DPP_LOGFILE%%",
+            "maxBytes": 1000485760,
+            "backupCount": 10,
+            "encoding": "utf-8"
+        }
+    },
+
+    "loggers": {
+        "logging": {
+            "level": "DEBUG",
+            "handlers": ["console"],
+            "propagate": "no"
+        }
+    },
+
+    "root": {
+        "level": "DEBUG",
+        "handlers": ["filehandler", "console"]
+    }
+}

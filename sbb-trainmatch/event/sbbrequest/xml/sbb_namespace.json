@@ -1,0 +1,11 @@
+{
+  "soapenc": "http://schemas.xmlsoap.org/soap/encoding/",
+  "soapenv": "http://schemas.xmlsoap.org/soap/envelope/",
+  "xsd": "http://www.w3.org/2001/XMLSchema",
+  "xsi": "http://www.w3.org/2001/XMLSchema-instance",
+  "NS1": "http://spf.sbb.ch/kundeninformation/fahrplan/v2/FahrplanService",
+  "NS2": "http://common.sbb.ch/types/CommonTypes/v1",
+  "NS3": "http://common.sbb.ch/types/CommonTypes/v1",
+  "NS4": "http://common.sbb.ch/types/CommonTypes/v1",
+  "NS5": "http://common.sbb.ch/types/CommonTypes/v1"
+}

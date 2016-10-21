@@ -1,0 +1,38 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:fah="http://spf.sbb.ch/kundeninformation/fahrplan/{api_version}/FahrplanService">
+    <soapenv:Header/>
+    <soapenv:Body>
+      <fah:FindVerbindungen version="2.1" language="de">
+         <fah:VerbindungSearch id="hello">
+            <fah:SearchConfig>
+               <fah:MaxResultNumber>{MaxResultNumber}</fah:MaxResultNumber>
+            </fah:SearchConfig>
+            <fah:SearchParameter>
+               <fah:Von>
+                  <fah:Koordinaten>
+                     <fah:Xkoordinate>{from_lon}</fah:Xkoordinate>
+                     <fah:Ykoordinate>{from_lat}</fah:Ykoordinate>
+                     <fah:KoordinatenTyp>WGS84_1000000</fah:KoordinatenTyp>
+                  </fah:Koordinaten>
+               </fah:Von>
+               <fah:Nach>
+                  <fah:Koordinaten>
+                     <fah:Xkoordinate>{to_lon}</fah:Xkoordinate>
+                     <fah:Ykoordinate>{to_lat}</fah:Ykoordinate>
+                     <fah:KoordinatenTyp>WGS84_1000000</fah:KoordinatenTyp>
+                  </fah:Koordinaten>
+               </fah:Nach>
+
+               <fah:VerbindungsZeitpunkt>
+                  <fah:Datum datumZeitBezug="{DateTimeType}">
+                     <fah:ZeitStempel>{timestamp}</fah:ZeitStempel>
+                  </fah:Datum>
+               </fah:VerbindungsZeitpunkt>
+               <fah:VerbindungsParameter>
+
+               </fah:VerbindungsParameter>
+            </fah:SearchParameter>
+
+         </fah:VerbindungSearch>
+      </fah:FindVerbindungen>
+    </soapenv:Body>
+</soapenv:Envelope>
